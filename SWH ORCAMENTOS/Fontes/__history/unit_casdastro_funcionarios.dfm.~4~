@@ -1,0 +1,15 @@
+inherited form_cadastro_funcionarios: Tform_cadastro_funcionarios
+  Caption = 'form_cadastro_funcionarios'
+  ExplicitLeft = 2
+  PixelsPerInch = 96
+  TextHeight = 17
+  inherited pnl_fundo: TPanel
+    inherited pnl_topo: TPanel
+      inherited lbl_titulo: TLabel
+        Width = 305
+        Caption = 'CADASTRO DE  FUNCION'#193'RIOS'
+        ExplicitWidth = 305
+      end
+    end
+  end
+end

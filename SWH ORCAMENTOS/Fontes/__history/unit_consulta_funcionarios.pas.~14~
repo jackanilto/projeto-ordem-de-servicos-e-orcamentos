@@ -1,0 +1,85 @@
+unit unit_consulta_funcionarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, unit_consulta_padrao, Data.DB,
+  System.ImageList, Vcl.ImgList, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, classe_funcionarios,
+  FireDAC.Comp.Client, unit_casdastro_funcionarios, unit_principal;
+
+type
+  Tform_consulta_funcionarios = class(Tform_consulta_padrao)
+    FDQuery1DS_FUNCAO: TStringField;
+    FDQuery1DS_NOME: TStringField;
+    procedure edt_consultaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn_inserirClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form_consulta_funcionarios: Tform_consulta_funcionarios;
+  Funcionarios: TFuncionarios;
+
+implementation
+
+{$R *.dfm}
+
+uses unit_conexao;
+
+procedure Tform_consulta_funcionarios.btn_inserirClick(Sender: TObject);
+begin
+  inherited;
+   // Cria o form de cadastro funcionarios
+  form_cadastro_funcionarios := Tform_cadastro_funcionarios.Create( Self );
+
+  //Abre ele dentro do pnl_principal do form_principal
+  form_cadastro_funcionarios.Parent := form_principal.pnl_principal;
+
+  //Mostra o form
+  form_cadastro_funcionarios.Show;
+end;
+
+procedure Tform_consulta_funcionarios.edt_consultaKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  inherited;
+
+  //Realiza uma nova consulta
+  if key = vk_return then
+    Funcionarios.Consultar( edt_consulta.Text );
+end;
+
+procedure Tform_consulta_funcionarios.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  //Destroi a classe
+  Funcionarios.Destroy;
+
+  inherited;
+
+end;
+
+procedure Tform_consulta_funcionarios.FormCreate(Sender: TObject);
+begin
+  inherited;
+
+  //Cria a variavel do tipo tfuncionarios e atribui a conexao a ela
+  Funcionarios := Tfuncionarios.Create( form_conexao.FDConnection );
+
+  //Liga o datasource a query consulta a classe funcionarios
+  ds_consulta.DataSet :=  Funcionarios.qry_consulta;
+  // Este metodo qryConsulta ainda nao foi implementado, por isso erro aqui tá.
+end;
+
+
+end.

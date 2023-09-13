@@ -1,0 +1,154 @@
+inherited form_cadastro_funcionarios: Tform_cadastro_funcionarios
+  Caption = 'form_cadastro_funcionarios'
+  PixelsPerInch = 96
+  TextHeight = 17
+  inherited pnl_fundo: TPanel
+    object Label1: TLabel [0]
+      Left = 48
+      Top = 104
+      Width = 132
+      Height = 17
+      Caption = 'Nome do Funcion'#225'rio'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6118749
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel [1]
+      Left = 48
+      Top = 196
+      Width = 44
+      Height = 17
+      Caption = 'Fun'#231#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6118749
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel [2]
+      Left = 440
+      Top = 196
+      Width = 50
+      Height = 17
+      Caption = 'Telefone'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6118749
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = []
+      ParentFont = False
+    end
+    inherited pnl_topo: TPanel
+      ExplicitWidth = 766
+      inherited lbl_titulo: TLabel
+        Width = 305
+        Caption = 'CADASTRO DE  FUNCION'#193'RIOS'
+        ExplicitWidth = 305
+      end
+      inherited pnl_separa: TPanel
+        ExplicitWidth = 766
+      end
+    end
+    object Panel1: TPanel
+      Left = 48
+      Top = 128
+      Width = 617
+      Height = 33
+      BevelOuter = bvNone
+      Color = 16772313
+      ParentBackground = False
+      TabOrder = 2
+      object edt_nome: TEdit
+        AlignWithMargins = True
+        Left = 8
+        Top = 8
+        Width = 601
+        Height = 17
+        Margins.Left = 8
+        Margins.Top = 8
+        Margins.Right = 8
+        Margins.Bottom = 8
+        Align = alClient
+        BevelOuter = bvNone
+        BorderStyle = bsNone
+        Color = 16772313
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6118749
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object Panel2: TPanel
+      Left = 48
+      Top = 220
+      Width = 361
+      Height = 33
+      BevelOuter = bvNone
+      Color = 16772313
+      ParentBackground = False
+      TabOrder = 3
+      object edt_funcao: TEdit
+        AlignWithMargins = True
+        Left = 8
+        Top = 8
+        Width = 345
+        Height = 17
+        Margins.Left = 8
+        Margins.Top = 8
+        Margins.Right = 8
+        Margins.Bottom = 8
+        Align = alClient
+        BevelOuter = bvNone
+        BorderStyle = bsNone
+        Color = 16772313
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6118749
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object Panel3: TPanel
+      Left = 440
+      Top = 220
+      Width = 225
+      Height = 33
+      BevelOuter = bvNone
+      Color = 16772313
+      ParentBackground = False
+      TabOrder = 4
+      object edt_telefone: TMaskEdit
+        AlignWithMargins = True
+        Left = 8
+        Top = 8
+        Width = 209
+        Height = 17
+        Margins.Left = 8
+        Margins.Top = 8
+        Margins.Right = 8
+        Margins.Bottom = 8
+        Align = alClient
+        BevelOuter = bvNone
+        BorderStyle = bsNone
+        Color = 16772313
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6118749
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        Text = ''
+      end
+    end
+  end
+end

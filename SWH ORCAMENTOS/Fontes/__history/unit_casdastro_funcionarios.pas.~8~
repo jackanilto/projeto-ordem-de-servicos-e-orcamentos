@@ -1,0 +1,75 @@
+unit unit_casdastro_funcionarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, unit_cadastro_padrao, Vcl.StdCtrls,
+  Vcl.ExtCtrls, Vcl.Mask, unit_mensagem, unit_funcoes;
+
+type
+  Tform_cadastro_funcionarios = class(Tform_cadastro_padrao)
+    pnl_nome: TPanel;
+    edt_nome: TEdit;
+    Label1: TLabel;
+    pnl_funcao: TPanel;
+    edt_funcao: TEdit;
+    Label2: TLabel;
+    pnl_telefone: TPanel;
+    edt_telefone: TMaskEdit;
+    Label3: TLabel;
+    procedure edt_telefoneExit(Sender: TObject);
+    procedure edt_telefoneEnter(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form_cadastro_funcionarios: Tform_cadastro_funcionarios;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure Tform_cadastro_funcionarios.edt_telefoneEnter(Sender: TObject);
+begin
+  inherited;
+  //Limpa a mascara do Telefone
+  edt_telefone.EditMask := '';
+
+  //Seleciona todo conteudo do edit
+  edt_telefone.SelectAll;
+end;
+
+procedure Tform_cadastro_funcionarios.edt_telefoneExit(Sender: TObject);
+var
+  nTelefone  : String;
+begin
+  inherited;
+  //Procedure que faz a verificação do telefone
+//nTelefone := Trim( RemoveCaracteres( edt_telefone.Text  ) );
+
+  //Se o telefone for vazio entao sai fora do pocedimento
+  if nTelefone = '' then
+    Exit;
+
+  //Verifica se o tamanho da string é 11 ou 10 digitos(celular ou fixo)
+  if ( Length ( nTelefone ) < 10) or ( Length ( nTelefone ) > 11 ) then
+  begin
+    CriarMensagem ( 'ERRO', 'Número de Telefone Inválido!' );
+    edt_telefone.SetFocus;
+    Abort;
+  end;
+
+  //Atribuindo a mascara de acordo com tamanho da string
+  if ( Length ( nTelefone ) = 10 ) then
+    edt_telefone.EditMask :=  '\(99\) 9999\-9999'
+  else if ( Length ( nTelefone ) = 11 ) then
+    edt_telefone.EditMask :=  '\(99\) 9 9999\-9999';
+
+end;
+
+end.

@@ -1,0 +1,50 @@
+unit unit_principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Vcl.StdCtrls, System.ImageList, Vcl.ImgList, Vcl.Buttons;
+
+type
+  Tform_principal = class(TForm)
+    pnl_topo: TPanel;
+    pnl_menu: TPanel;
+    pnl_principal: TPanel;
+    img_logo_empresa: TImage;
+    lbl_titulo: TLabel;
+    lbl_versao: TLabel;
+    btn_fechar: TSpeedButton;
+    ImageList1: TImageList;
+    btn_usuario: TSpeedButton;
+    btn_config: TSpeedButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn_fecharClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form_principal: Tform_principal;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tform_principal.btn_fecharClick(Sender: TObject);
+begin
+  //Fechar o Form Principal e encerra a aplicação
+  form_principal.Close;
+  Application.Terminate;
+end;
+
+procedure Tform_principal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  //Liberar o Form da Memória
+  FreeAndNil( form_principal);
+end;
+
+end.

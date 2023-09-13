@@ -1,0 +1,165 @@
+inherited form_cadastro_funcionarios: Tform_cadastro_funcionarios
+  Caption = 'form_cadastro_funcionarios'
+  PixelsPerInch = 96
+  TextHeight = 17
+  inherited pnl_fundo: TPanel
+    object Label1: TLabel [0]
+      Left = 48
+      Top = 104
+      Width = 142
+      Height = 17
+      Caption = 'Nome do Funcion'#225'rio *'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6118749
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label2: TLabel [1]
+      Left = 48
+      Top = 200
+      Width = 103
+      Height = 17
+      Caption = 'Fun'#231#227'o / Cargo *'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6118749
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel [2]
+      Left = 440
+      Top = 196
+      Width = 60
+      Height = 17
+      Caption = 'Telefone *'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 6118749
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = []
+      ParentFont = False
+    end
+    inherited pnl_topo: TPanel
+      TabOrder = 4
+      inherited lbl_titulo: TLabel
+        Width = 305
+        Caption = 'CADASTRO DE  FUNCION'#193'RIOS'
+        ExplicitWidth = 305
+      end
+    end
+    inherited pnl_botoes: TPanel
+      TabOrder = 3
+    end
+    object pnl_nome: TPanel
+      Left = 48
+      Top = 128
+      Width = 617
+      Height = 33
+      BevelOuter = bvNone
+      Color = 16772313
+      ParentBackground = False
+      TabOrder = 0
+      object edt_nome: TEdit
+        Tag = 5
+        AlignWithMargins = True
+        Left = 8
+        Top = 8
+        Width = 601
+        Height = 17
+        Hint = 'Nome do Funcion'#225'rio'
+        Margins.Left = 8
+        Margins.Top = 8
+        Margins.Right = 8
+        Margins.Bottom = 8
+        Align = alClient
+        BevelOuter = bvNone
+        BorderStyle = bsNone
+        CharCase = ecUpperCase
+        Color = 16772313
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6118749
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object pnl_funcao: TPanel
+      Left = 48
+      Top = 220
+      Width = 361
+      Height = 33
+      BevelOuter = bvNone
+      Color = 16772313
+      ParentBackground = False
+      TabOrder = 1
+      object edt_funcao: TEdit
+        Tag = 5
+        AlignWithMargins = True
+        Left = 8
+        Top = 8
+        Width = 345
+        Height = 17
+        Hint = 'Fun'#231#227'o / Cargo'
+        Margins.Left = 8
+        Margins.Top = 8
+        Margins.Right = 8
+        Margins.Bottom = 8
+        Align = alClient
+        BevelOuter = bvNone
+        BorderStyle = bsNone
+        CharCase = ecUpperCase
+        Color = 16772313
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6118749
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object pnl_telefone: TPanel
+      Left = 440
+      Top = 220
+      Width = 225
+      Height = 33
+      BevelOuter = bvNone
+      Color = 16772313
+      ParentBackground = False
+      TabOrder = 2
+      object edt_telefone: TMaskEdit
+        Tag = 5
+        AlignWithMargins = True
+        Left = 8
+        Top = 8
+        Width = 209
+        Height = 17
+        Hint = 'Telefone'
+        Margins.Left = 8
+        Margins.Top = 8
+        Margins.Right = 8
+        Margins.Bottom = 8
+        Align = alClient
+        BevelOuter = bvNone
+        BorderStyle = bsNone
+        CharCase = ecUpperCase
+        Color = 16772313
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = 6118749
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        Text = ''
+        OnEnter = edt_telefoneEnter
+        OnExit = edt_telefoneExit
+      end
+    end
+  end
+end

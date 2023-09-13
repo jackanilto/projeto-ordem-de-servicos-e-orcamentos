@@ -1,0 +1,31 @@
+object form_conexao: Tform_conexao
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  OnDestroy = DataModuleDestroy
+  Height = 535
+  Width = 781
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=C:\SWH ORCAMENTOS\DADOS\DADOS.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Protocol=TCPIP'
+      'Server=localhost'
+      'Port=3050'
+      'CharacterSet=WIN1252'
+      'DriverID=FB')
+    LoginPrompt = False
+    Left = 32
+    Top = 32
+  end
+  object FDPhysFBDriverLink: TFDPhysFBDriverLink
+    VendorLib = 'admin'
+    Left = 144
+    Top = 32
+  end
+  object FDGUIxWaitCursor: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 272
+    Top = 32
+  end
+end

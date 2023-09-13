@@ -1,0 +1,35 @@
+unit unit_casdastro_funcionarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, unit_cadastro_padrao, Vcl.StdCtrls,
+  Vcl.ExtCtrls, Vcl.Mask;
+
+type
+  Tform_cadastro_funcionarios = class(Tform_cadastro_padrao)
+    pnl_nome: TPanel;
+    edt_nome: TEdit;
+    Label1: TLabel;
+    pnl_funcao: TPanel;
+    edt_funcao: TEdit;
+    Label2: TLabel;
+    pnl_telefone: TPanel;
+    edt_telefone: TMaskEdit;
+    Label3: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form_cadastro_funcionarios: Tform_cadastro_funcionarios;
+
+implementation
+
+{$R *.dfm}
+
+
+end.

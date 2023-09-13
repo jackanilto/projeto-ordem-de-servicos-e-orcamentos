@@ -1,0 +1,82 @@
+unit classe_funcionarios;
+
+interface
+
+uses
+  FireDAC.Comp.Client, FireDAC.DApt;
+
+Type
+  TFuncionarios = Class
+
+  Private
+
+    Fconexao        :TFDConnection;
+    FId_funcionario :Integer;
+    Fds_nome        :String;
+    Fds_funcao      :String;
+    Fnr_telefone    :String;
+    Fqry_consulta   :TFDQuery;
+
+
+  Public
+    property  Conexao        :TFDConnection read Fconexao        write FConexao;
+    property  Id_funcionario :Integer       read FId_funcionario write FId_funcionario;
+    property  ds_nome        :String        read Fds_nome        write Fds_nome;
+    property  ds_funcao      :String        read Fds_funcao      write Fds_funcao;
+    property  nr_telefone    :String        read Fnr_telefone    write Fnr_telefone;
+    property  qry_consulta   :TFDQuery      read Fqry_consulta   write Fqry_consulta;
+
+
+    constructor Create ( Conexao : TFDConnection );
+    Destructor Destroy; Override;
+
+    function consultar (Texto: String): TFDQuery;
+
+  End;
+
+implementation
+
+{ TFuncionarios }
+
+{ TFuncionarios }
+
+function TFuncionarios.consultar( Texto: String ): TFDQuery;
+begin
+  try
+    Fqry_consulta.Close;
+    Fqry_consulta.Sql.Clear;
+    Fqry_consulta.Sql.Add('SELECT' +
+                          'ID_FUNCIONARIO, ' +
+                          'DS_NOME,        ' +
+                          'DS_FUNCAO,      ' +
+                          'NR_TELEFONE     ' +
+                          'FROM FUNCIONARIO ' +
+                          'WHERE DS_NOME LIKE :  TEXTO ' +
+                          'ORDER BY DS_NOME ASC' );
+    qry_consulta.ParamByName('TEXTO').AsString  :=  '%' + Texto + '%';
+    Fqry_consulta.Open;
+  finally
+
+    Result  := Fqry_consulta;
+  end;
+end;
+
+constructor TFuncionarios.Create( Conexao: TFDConnection  );
+begin
+  //Atribui o componente para a propriedade de conexao
+  Fconexao := Conexao;
+
+  //Cria e inicializa a query de consulta
+  Fqry_consulta :=  TFDQuery.Create( nil );
+  Fqry_consulta.Connection  := FConexao;
+end;
+
+destructor TFuncionarios.Destroy;
+begin
+  inherited;
+
+  //Destroi a query de consulta;
+  Fqry_consulta.Destroy;
+end;
+
+end.
